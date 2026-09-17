@@ -1,7 +1,18 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#1763d4"><title>南山进场路线</title><link rel="stylesheet" href="./style.css"></head>
 <body>
-<header><div class="title"><div><span class="eyebrow">机组班车 · 进场</span><h1>南山路线地图</h1></div><span id="map-state" role="status">地图加载中</span></div><nav aria-label="选择进场路线"><button data-route="all" aria-pressed="true">全部</button><button data-route="A" aria-pressed="false"><i class="a"></i>A 线</button><button data-route="B" aria-pressed="false"><i class="b"></i>B 线</button><button data-route="S" aria-pressed="false"><i class="s"></i>蛇口摆渡</button></nav></header>
+<section class="access-screen" id="access-screen" aria-labelledby="access-title">
+  <form class="access-card" id="access-form" novalidate>
+    <span class="eyebrow">机组班车 · 进场</span>
+    <h1 id="access-title">南山路线地图</h1>
+    <p class="access-intro">请输入手机号，验证后查看路线。</p>
+    <label for="access-phone">手机号</label>
+    <input id="access-phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" maxlength="11" placeholder="请输入11位手机号" aria-describedby="access-message" required>
+    <p id="access-message" class="access-message" role="alert"></p>
+    <button class="access-submit" type="submit">验证并进入</button>
+  </form>
+</section>
+<template id="map-content"><header><div class="title"><div><span class="eyebrow">机组班车 · 进场</span><h1>南山路线地图</h1></div><span id="map-state" role="status">地图加载中</span></div><nav aria-label="选择进场路线"><button data-route="all" aria-pressed="true">全部</button><button data-route="A" aria-pressed="false"><i class="a"></i>A 线</button><button data-route="B" aria-pressed="false"><i class="b"></i>B 线</button><button data-route="S" aria-pressed="false"><i class="s"></i>蛇口摆渡</button></nav></header>
 <main>
 <section class="map-wrap" aria-label="交互地图">
 <div id="map" aria-label="可拖动及缩放的高德地图"></div>
@@ -11,4 +22,6 @@
 <div id="error" role="alert" hidden><strong>地图暂时无法加载</strong><p id="error-message"></p><button id="retry">重新加载</button></div>
 </section>
 <aside aria-label="路线站点"><div class="panel-head"><div><h2 id="route-title">全部进场路线</h2><p id="route-summary">A/B 在飞行员公寓汇合，摆渡线接驳至此</p></div></div><div id="station-detail" aria-live="polite" hidden></div><div id="station-list"></div><details><summary>点位精度与来源 · 9月17日核对</summary><p>已按高德搜索结果核对地点，点击站点可查看高德原始地点。带 * 表示班车具体门口、路口或停靠位置仍待确认；公交站匹配不代表已确认站台方向。</p><p>“南山文化中心”和“后海立交”未找到可确定的同名地点，保留估算位置并注明。终点按你确认的“深圳航空公司东区运行信息楼”标注。</p><p>坐标使用高德 GCJ-02。站点顺序来自原图；虚线只表示先后关系，未核实逐路口行车轨迹。</p></details></aside>
-</main><script src="./config.js"></script><script src="./data.js"></script><script src="./app.js"></script></body></html>
+</main></template>
+<noscript>请启用浏览器 JavaScript 后查看地图。</noscript>
+<script src="./access.js"></script></body></html>
